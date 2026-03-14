@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	slct "github.com/codemity/auxilium/cmd/select"
-	"github.com/codemity/auxilium/internal/app"
+	slct "github.com/codemityio/auxilium/cmd/select"
+	"github.com/codemityio/auxilium/internal/app"
 	"github.com/urfave/cli/v2"
 )
 
@@ -28,6 +28,6 @@ and supporting project workflows and operations.`,
 	}
 
 	if e := application.Run(os.Args); e != nil {
-		log.Fatalf("error occurred during execution")
+		log.Fatalf("error: %v", e)
 	}
 }

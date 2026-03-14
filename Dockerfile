@@ -16,10 +16,9 @@ COPY "pkg" "pkg"
 COPY "go.*" "."
 COPY "*.go" "."
 
-RUN mkdir -p bin \
-    && go build \
+RUN go build \
   -ldflags "\
--X 'main.name=${BASE_NAME}' \
+-X 'main.name=${NAME}' \
 -X 'main.version=${VERSION}' \
 -X 'main.copyright=${VENDOR}' \
 -X 'main.authorName=${VENDOR}' \
@@ -37,6 +36,10 @@ COPY --from=build /tmp/build/bin/app /opt/app/bin/app
 
 ADD entrypoint.sh /
 
+RUN adduser -D -h /home/commander -s /bin/bash commander
+
 RUN ["chmod", "+x", "/entrypoint.sh"]
+
+USER commander
 
 ENTRYPOINT ["/entrypoint.sh"]

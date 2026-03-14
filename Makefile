@@ -7,6 +7,7 @@
 	@true
 
 default: # A default target to initiate interactive menu
+	@source scripts/func.sh && check "git docker go goimports gofumpt"
 	@scripts/default.sh make
 
 help: ## Prints help for targets with comments
@@ -18,11 +19,14 @@ version: ## Print the most recent version
 next: ## Create a new version (bump prerelease or patch)
 	@scripts/tools.sh next
 
-check: make gen fmt statan test cov diff cleanup ## Run all CI required targets
+check: prep gen fmt statan test cov diff cleanup ## Run all CI required targets
 
 ###########
 ## D E V ##
 ###########
+
+prep: ## Prepare dev tools
+	@scripts/tools.sh prep
 
 cmd: ## Run a command passed as COMMAND= value (e.g. make cmd COMMAND="make check")
 	@scripts/tools.sh cmd
@@ -61,7 +65,7 @@ test-race: ## Run race tests
 	@scripts/tools.sh test-race
 
 cov: ## Check coverage
-	#@scripts/tools.sh cov # temporary disabled: todo: enable when possible...
+	@scripts/tools.sh cov
 
 cov-report: ## Check coverage report
 	@scripts/tools.sh cov-report
@@ -79,11 +83,43 @@ diff: ## Check diff to ensure this project consistency
 go: ## Build Go
 	@scripts/tools.sh go
 
-build: ## Build container image
-	@scripts/tools.sh build
-
 install: ## Install binary locally
 	@scripts/tools.sh install
+
+build: ## Build container image
+	@scripts/docker.sh build
+
+buildx: ## Build container multi platform images and push
+	@scripts/docker.sh buildx
+
+push: ## Push image
+	@scripts/docker.sh push
+
+#############
+## D O C S ##
+#############
+
+docs: docs-main ## Generate all docs
+	@PACKAGES='$(shell find "${PWD}/pkg" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; 2>/dev/null)' make docs-uml docs-depgraph docs-pkg docs-render
+	@PACKAGES='$(shell find "${PWD}/cmd" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; 2>/dev/null)' make docs-cmd
+
+docs-uml: ## Generate UML documentation
+	@scripts/docs.sh uml
+
+docs-depgraph: ## Generate dependency graph
+	@scripts/docs.sh depgraph
+
+docs-cmd: ## Generate cmd docs
+	@scripts/docs.sh cmd
+
+docs-pkg: ## Generate pkg docs
+	@scripts/docs.sh pkg
+
+docs-render: ## Render diagrams
+	@scripts/docs.sh render
+
+docs-main: ## Generate main docs
+	@scripts/docs.sh main
 
 ##########################
 ## D A N G E R  Z O N E ##

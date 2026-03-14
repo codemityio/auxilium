@@ -1,6 +1,6 @@
-module github.com/codemity/auxilium
+module github.com/codemityio/auxilium
 
-go 1.25.8
+go 1.26.1
 
 require (
 	github.com/manifoldco/promptui v0.9.0

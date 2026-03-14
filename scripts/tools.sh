@@ -29,7 +29,7 @@ case "$1" in
     ;;
 
   "container")
-    docker run "${IMAGE_NAME}:latest" ${FLAGS} ${COMMAND}
+    docker run --rm "${IMAGE_NAME}:latest" ${FLAGS} ${COMMAND}
     ;;
 
   *)

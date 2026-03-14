@@ -1,3 +1,33 @@
 package main
 
-func main() {}
+import (
+	"log"
+	"os"
+
+	slct "github.com/codemity/auxilium/cmd/select"
+	"github.com/codemity/auxilium/internal/app"
+	"github.com/urfave/cli/v2"
+)
+
+func main() {
+	application := app.New(
+		app.WithValues(
+			name,
+			`A collection of auxiliary tools for automating and simplifying common project tasks
+and supporting project workflows and operations.`,
+			version,
+			copyright,
+			authorName,
+			authorEmail,
+			buildTime,
+		),
+	)
+
+	application.Commands = []*cli.Command{
+		&slct.App,
+	}
+
+	if e := application.Run(os.Args); e != nil {
+		log.Fatalf("error occurred during execution")
+	}
+}

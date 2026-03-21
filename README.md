@@ -4,6 +4,16 @@
 
 ## Table of contents
 
+- [Summary](#summary)
+- [Development](#development)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Manual](#manual)
+  - [Subcommands](#subcommands)
+  - [Docker](#docker)
+- [Packages](#packages)
+- [License](#license)
+
 ## Summary
 
 A collection of auxiliary tools for automating and simplifying common project tasks and supporting project workflows and
@@ -13,7 +23,7 @@ operations.
 
 To work with the codebase, use `make` command as the primary entry point for all project tools.
 
-Navigate the available options using the arrow keys: `↓ ↑ → ←`. Use `/` to toggle search.
+Use the arrow keys `↓ ↑ → ←` to navigate the options, and press `/` to toggle search.
 
 ## Installation
 
@@ -22,7 +32,77 @@ To install the tool use `make install` (directly from the repository clone) or u
 
 ## Usage
 
-Once you have the tool installed, just use `auxilium` command to start.
+Once you have the tool installed, just use the `auxilium` command to get started.
+
+### Manual
+
+``` bash
+$ auxilium --help
+NAME:
+   auxilium - A new cli application
+
+USAGE:
+   auxilium [global options] command [command options]
+
+VERSION:
+   v0.0.5
+
+DESCRIPTION:
+   A collection of auxiliary tools for automating and simplifying common project tasks
+   and supporting project workflows and operations.
+
+AUTHOR:
+   codemityio
+
+COMMANDS:
+   select   
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+
+COPYRIGHT:
+   codemityio
+```
+
+### Subcommands
+
+- [`select`](cmd/select/README.md) - An interactive select command.
+
+### Docker
+
+``` bash
+$ docker run codemityio/auxilium --help
+NAME:
+   auxilium - A new cli application
+
+USAGE:
+   auxilium [global options] command [command options]
+
+VERSION:
+   v0.0.5
+
+DESCRIPTION:
+   A collection of auxiliary tools for automating and simplifying common project tasks
+   and supporting project workflows and operations.
+
+AUTHOR:
+   codemityio
+
+COMMANDS:
+   select   
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+
+COPYRIGHT:
+   codemityio
+```
+
+## Packages
 
 ## License
 

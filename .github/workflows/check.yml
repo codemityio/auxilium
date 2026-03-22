@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Check
-        run: make docs cmd COMMAND="make check"
+        run: make prep docs cmd COMMAND="make check"

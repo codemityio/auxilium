@@ -46,7 +46,7 @@ auxilium validate \
 
 ``` shell
 auxilium validate \
-  --input-path=linput.yaml \
+  --input-path=input.yaml \
   --input-format=yaml \
   --schema-path=schema.json
 ```

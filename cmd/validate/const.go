@@ -1,7 +1,8 @@
 package validate
 
 const (
-	jsonFmt = format("json")
-	yamlFmt = format("yaml")
-	ymlFmt  = format("yml")
+	fmtJSON   = format("json")
+	fmtYAML   = format("yaml")
+	fmtYML    = format("yml")
+	valueJSON = "json"
 )

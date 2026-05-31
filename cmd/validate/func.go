@@ -66,9 +66,9 @@ func unmarshal(content []byte, frmt string) (any, error) {
 	var err error
 
 	switch format(frmt) {
-	case jsonFmt:
+	case fmtJSON:
 		err = json.Unmarshal(content, &out)
-	case yamlFmt, ymlFmt:
+	case fmtYAML, fmtYML:
 		err = yaml.Unmarshal(content, &out)
 	default:
 		return nil, fmt.Errorf("%w: with `%s` format", errFormat, frmt)
@@ -109,9 +109,9 @@ func writeErrors(errors []validationError, frmt string) error {
 	)
 
 	switch format(frmt) {
-	case jsonFmt:
+	case fmtJSON:
 		out, err = json.Marshal(errors)
-	case yamlFmt, ymlFmt:
+	case fmtYAML, fmtYML:
 		out, err = yaml.Marshal(errors)
 	default:
 		return fmt.Errorf("%w: with `%s` output format", errFormat, frmt)

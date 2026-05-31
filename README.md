@@ -1,6 +1,6 @@
-# ![Auxilium](logo.jpg)
+# ![Auxilium](head.png)
 
-![coverage-badge-do-not-edit](https://img.shields.io/badge/Coverage-64%25-yellow.svg?longCache=true&style=flat)
+![coverage-badge-do-not-edit](https://img.shields.io/badge/Coverage-67%25-yellow.svg?longCache=true&style=flat)
 
 ## Table of contents
 

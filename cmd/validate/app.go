@@ -33,7 +33,7 @@ var App = cli.Command{ //nolint:gochecknoglobals,exhaustruct
 		&cli.StringFlag{ //nolint:exhaustruct
 			Name:  "input-format",
 			Usage: "input format to be used (`json`, `yaml` or `yml`)",
-			Value: "json",
+			Value: valueJSON,
 		},
 		&cli.StringFlag{ //nolint:exhaustruct
 			Name:  "schema",
@@ -48,12 +48,12 @@ var App = cli.Command{ //nolint:gochecknoglobals,exhaustruct
 		&cli.StringFlag{ //nolint:exhaustruct
 			Name:  "schema-format",
 			Usage: "schema format to be used (`json`, `yaml` or `yml`)",
-			Value: "json",
+			Value: valueJSON,
 		},
 		&cli.StringFlag{ //nolint:exhaustruct
 			Name:  "output-format",
 			Usage: "output format to be used (`json`, `yaml` or `yml`)",
-			Value: "json",
+			Value: valueJSON,
 		},
 	},
 	Subcommands: []*cli.Command{},
